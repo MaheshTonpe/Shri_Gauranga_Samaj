@@ -313,7 +313,7 @@ const Navbar = () => {
                                 textTransform: 'capitalize',
                                 borderRadius: '10px',
                                 padding: '4px 8px',
-                                fontSize: 'bold',
+                                fontWeight: 'bold',
                                 '&:hover': {
                                     backgroundColor: '#F0F2F2',
                                     color: '#131921',

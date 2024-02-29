@@ -10,7 +10,7 @@ import FilterBar from '../components/FilterBar'
 const ArticlePage = () => {
     return (
         <div>
-            <Box>
+            <Box sx={{ backgroundColor: "#FEFCEA" }}>
                 <Box>
                     <ImageSlider />
                 </Box>
@@ -46,7 +46,7 @@ const ArticlePage = () => {
                 <Box>
                     <Box sx={{ display: "flex", gap: 3, justifyContent: "flex-start" }}>
                         <Typography variant='h6' sx={{ fontWeight: "bold", ml: 25, textDecoration: 'underline' }}>
-                            Rescent
+                            Recent
                         </Typography>
                     </Box>
                     <Box sx={{ display: "flex", justifyContent: "center", gap: 3, flexWrap: "wrap" }}>

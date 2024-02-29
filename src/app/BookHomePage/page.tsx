@@ -7,7 +7,7 @@ import Topic from '../components/Topic'
 const BookHomePage = () => {
     return (
         <div>
-            <Box>
+            <Box sx={{ backgroundColor: "#FEFCEA" }}>
                 <Box>
                     <ImageSlider />
                     <Box>
@@ -21,7 +21,7 @@ const BookHomePage = () => {
                                 Featured
                             </Typography>
                         </Box>
-                        <Box sx={{ display: "flex", justifyContent: "center", gap: 3, flexWrap: "wrap" }}>
+                        <Box sx={{ display: "flex", justifyContent: "center", gap: 2, flexWrap: "wrap"}}>
                             <BookCard />
                             <BookCard />
                             <BookCard />

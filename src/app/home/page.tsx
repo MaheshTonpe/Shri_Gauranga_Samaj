@@ -12,15 +12,15 @@ const HomePage = () => {
 
     return (
         <div>
-            <Box>
+            <Box sx={{ backgroundColor: "#FEFCEA" }}>
                 <ImageSlider />
                 <Box>
-                    <Box sx={{ display: "flex", gap: 3, justifyContent: "flex-start" }}>
+                    <Box sx={{ display: "flex", gap: 5,mt:2, justifyContent: "flex-start" }}>
                         <Typography variant='h6' sx={{ fontWeight: "bold", ml: 25, textDecoration: 'underline' }}>
                             Article
                         </Typography>
                     </Box>
-                    <Box sx={{ display: "flex", gap: 3, justifyContent: "center", flexWrap: "wrap" }}>
+                    <Box sx={{ display: "flex", gap: 5,mt:2, justifyContent: "center", flexWrap: "wrap" }}>
                         <MyProfile />
                         <MyProfile />
                         <MyProfile />
@@ -28,26 +28,31 @@ const HomePage = () => {
                     </Box>
 
                 </Box>
-                <Box sx={{ mt: 3 }}>
-                    <Box sx={{ display: "flex", gap: 3, justifyContent: "flex-start" }}>
+                <Box>
+                    <Box sx={{ display: "flex", gap: 5,mt:2, justifyContent: "flex-start" }}>
                         <Typography variant='h6' sx={{ fontWeight: "bold", ml: 25, textDecoration: 'underline' }}>
                             Books
                         </Typography>
                     </Box>
-                    <Box sx={{ display: "flex", gap: 3, justifyContent: "center", flexWrap: "wrap" }}>
+                    <Box sx={{ display: "flex", gap: 5,mt:2, justifyContent: "center", flexWrap: "wrap" }}>
                         <BookCard />
                         <BookCard />
                         <BookCard />
                         <Topic />
                     </Box>
+                    {/* <Box sx={{display:"flex", justifyContent:""}}>
+                    <Typography variant='h6' sx={{ fontWeight: "bold", fontSize:"small" }}>
+                            See More
+                        </Typography>
+                    </Box> */}
                 </Box>
                 <Box sx={{ mt: 3 }}>
-                    <Box sx={{ display: "flex", gap: 3, justifyContent: "flex-start" }}>
+                    <Box sx={{ display: "flex", gap: 5,mt:2, justifyContent: "flex-start" }}>
                         <Typography variant='h6' sx={{ fontWeight: "bold", ml: 25, textDecoration: 'underline' }}>
-                            Booklet
+                            Booklets
                         </Typography>
                     </Box>
-                    <Box sx={{ display: "flex", gap: 3, justifyContent: "center", flexWrap: "wrap" }}>
+                    <Box sx={{ display: "flex", gap: 5,mt:2, justifyContent: "center", flexWrap: "wrap" }}>
                         <BookletCard />
                         <BookletCard />
                         <BookletCard />
