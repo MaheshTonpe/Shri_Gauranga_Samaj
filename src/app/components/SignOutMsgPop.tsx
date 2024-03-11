@@ -8,7 +8,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 
 
-export default function SignOutMsg({popupSignOut, setOpen}) {
+export default function SignOutMsg() {
 
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
@@ -20,7 +20,7 @@ export default function SignOutMsg({popupSignOut, setOpen}) {
     return (
         <React.Fragment>
             <Dialog
-                open={popupSignOut}
+                open={false}
                 onClose={handleClose}
                 PaperProps={{
                     sx: { borderRadius: 2, border: "1px solid black" }
@@ -40,4 +40,8 @@ export default function SignOutMsg({popupSignOut, setOpen}) {
             </Dialog>
         </React.Fragment>
     );
+}
+
+function setOpen(arg0: boolean) {
+    throw new Error('Function not implemented.');
 }

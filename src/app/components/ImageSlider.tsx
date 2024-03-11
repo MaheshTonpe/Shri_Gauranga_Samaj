@@ -1,57 +1,59 @@
-"use client"
-
-import * as React from 'react';
-import { useTheme } from '@mui/material/styles';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import MobileStepper from '@mui/material/MobileStepper';
 import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
-import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import SwipeableViews from 'react-swipeable-views';
-import { autoPlay } from 'react-swipeable-views-utils';
-
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+import { Button, useMediaQuery } from '@mui/material';
+// import SkipNextIcon from '@mui/icons-material/SkipNext';
+// import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
 
 const images = [
     {
         label: '',
-        imgPath:
-            '/krishna.jpg',
+        imgPath: '/krishna.jpg',
     },
     {
         label: '',
-        imgPath:
-            '/radha krishna.jpg',
+        imgPath: '/radha krishna.jpg',
     },
     {
         label: '',
-        imgPath:
-            '/shree radha logo.jpg',
+        imgPath: '/shree radha logo.jpg',
     },
     {
         label: '',
-        imgPath:
-            '/radha krishna.jpg',
+        imgPath: '/radha krishna.jpg',
+    },
+    {
+        label: '',
+        imgPath: '/radha krishna.jpg',
+    },
+    {
+        label: '',
+        imgPath: '/radha krishna.jpg',
     },
 ];
 
 function ImageSlider() {
-    const theme = useTheme();
-    const [activeStep, setActiveStep] = React.useState(0);
+
+    const matches = useMediaQuery("(min-width:600px)");
+
+    const [activeStep, setActiveStep] = useState(0);
     const maxSteps = images.length;
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            handleNext();
+        }, 5000);
+
+        return () => clearInterval(interval);
+    }, [activeStep]);
+
     const handleNext = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+        setActiveStep((prevActiveStep) => (prevActiveStep + 1) % maxSteps);
     };
 
     const handleBack = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    };
-
-    const handleStepChange = (step: number) => {
-        setActiveStep(step);
+        setActiveStep((prevActiveStep) => (prevActiveStep - 1 + maxSteps) % maxSteps);
     };
 
     return (
@@ -65,49 +67,64 @@ function ImageSlider() {
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            height: 100,
+                            height: 50,
                             pl: 2,
                             bgcolor: '#FEFCEA',
                         }}
-                    >
-                        <Typography>{images[activeStep].label}</Typography>
-                    </Paper>
-                    <AutoPlaySwipeableViews
-                        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-                        index={activeStep}
-                        onChangeIndex={handleStepChange}
-                        enableMouseEvents
-                    >
-                        {images.map((step, index) => (
-                            <div key={step.label}>
-                                {Math.abs(activeStep - index) <= 2 ? (
-                                    <Box
-                                        component="img"
-                                        sx={{
-                                            height: 355,    //255
-                                            display: 'block',
-                                            maxWidth: '100%',
-                                            overflow: 'hidden',
-                                            width: '100%',
-                                            borderRadius: 5,
-                                        }}
-                                        src={step.imgPath}
-                                        alt={step.label}
-                                    />
-                                ) : null}
-                            </div>
-                        ))}
-                    </AutoPlaySwipeableViews>
+                    />
+                    <Box
+                        component="img"
+                        loading="lazy"
+                        sx={{
+                            height: 355,
+                            display: 'block',
+                            maxWidth: '100%',
+                            overflow: 'hidden',
+                            width: '100%',
+                            borderRadius: 5,
+                        }}
+                        src={images[activeStep]?.imgPath}
+                        alt={images[activeStep]?.label}
+                    />
                     <MobileStepper
-                        steps={maxSteps}
+                        variant="dots"
+                        steps={6}
                         position="static"
                         activeStep={activeStep}
-                        sx={{display:"flex", justifyContent:"center", backgroundColor:"#FEFCEA"}}
+                        sx={{
+                            display: "flex",
+                            justifyContent: "center",
+                            backgroundColor: "#FEFCEA",
+                            '& .MuiMobileStepper-dots': {
+                                marginTop: '25px',
+                                gap: 8
+
+                            },
+                            '& .MuiMobileStepper-dot': {
+                                width: '30px',
+                                height: '30px',
+                                border: "1px solid Black"
+                            },
+                            '& .MuiMobileStepper-dotActive': {
+                                backgroundColor: '#562000',
+                            },
+                        }}
+                        backButton={
+                            <Box>
+                                <button onClick={handleBack} disabled={activeStep === 0}>
+                                </button>
+                            </Box>
+                        }
+                        nextButton={
+                            <Box>
+                                <button onClick={handleNext} disabled={activeStep === maxSteps - 1}>
+                                </button>
+                            </Box>
+                        }
                     />
                 </Box>
             </Box>
         </Box>
-
     );
 }
 

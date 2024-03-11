@@ -6,8 +6,8 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import { Box, Typography } from '@mui/material';
 
-export default function UpgradeToNXTpage({popupSubUpgrade, setOpen}) {
-    // const [open, setOpen] = React.useState(false);
+export default function UpgradeToNXTpage() {
+    const [open, setOpen] = React.useState(false);
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -25,7 +25,7 @@ export default function UpgradeToNXTpage({popupSubUpgrade, setOpen}) {
                 </Button> */}
                 <Dialog
                     fullScreen={fullScreen}
-                    open={popupSubUpgrade}
+                    open={open}
                     onClose={handleClose}
                     aria-labelledby="responsive-dialog-title"
                 >

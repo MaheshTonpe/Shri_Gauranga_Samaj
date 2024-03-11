@@ -2,20 +2,19 @@
 import { Box, Button, Typography, useMediaQuery } from '@mui/material'
 import React, { useEffect } from 'react'
 import ImageSlider from '../components/ImageSlider'
-import BookCard from '../components/BookCard'
 import FilterBar from '../components/FilterBar'
 import { useRouter } from 'next/navigation'
 import TopicTwo from '../components/TopicTwo'
+import BookletCard from '../components/BookletCard'
 
-const BookHomePage = () => {
-
-    const router = useRouter();
+const BookletHomePage = () => {
 
     const matches = useMediaQuery("(min-width:600px)");
 
+    const router = useRouter();
 
-    const handleclickbookcardspage = () => {
-        router.push('/BookCardsPage')
+    const handleclickbookletcardspage = () => {
+        router.push('/BookletCardsPage')
     }
 
     useEffect(() => {
@@ -29,7 +28,7 @@ const BookHomePage = () => {
             <Box sx={{ backgroundColor: "#FEFCEA" }}>
                 <Box>
                     <Typography variant='h6' p={2} sx={{ fontSize: "small" }}>
-                        <b>Home /</b> Books
+                        <b>Home /</b> Booklet
                     </Typography>
                 </Box>
                 <Box>
@@ -48,9 +47,9 @@ const BookHomePage = () => {
                                     </Typography>
                                 </Box>
                                 <Box display={"flex"} justifyContent={"center"} gap={10} flexWrap={"wrap"}>
-                                    <BookCard />
-                                    <BookCard />
-                                    <BookCard />
+                                    <BookletCard />
+                                    <BookletCard />
+                                    <BookletCard />
                                 </Box>
                             </Box>
                             <Box>
@@ -60,9 +59,9 @@ const BookHomePage = () => {
                                     </Typography>
                                 </Box>
                                 <Box display={"flex"} justifyContent={"center"} gap={10} flexWrap={"wrap"}>
-                                    <BookCard />
-                                    <BookCard />
-                                    <BookCard />
+                                    <BookletCard />
+                                    <BookletCard />
+                                    <BookletCard />
                                 </Box>
                             </Box>
                             <Box>
@@ -72,23 +71,22 @@ const BookHomePage = () => {
                                     </Typography>
                                 </Box>
                                 <Box display={"flex"} justifyContent={"center"} gap={10} flexWrap={"wrap"}>
-                                    <BookCard />
-                                    <BookCard />
-                                    <BookCard />
+                                    <BookletCard />
+                                    <BookletCard />
+                                    <BookletCard />
                                 </Box>
                             </Box>
                         </Box>
                     </Box>
                     <Box display={"flex"} alignItems={"center"} justifyContent={"center"} mt={!matches ? 5 : 0}>
                         <Button variant="outlined"
-                            onClick={handleclickbookcardspage}
+                            onClick={handleclickbookletcardspage}
                             sx={{
                                 border: "1px solid black",
                                 color: "white",
                                 backgroundColor: "#81311A",
-                                p: 1,
+                                p: 1, mb: 5,
                                 mt:5,
-                                mb: 5,
                                 borderRadius: 3,
                                 width: "110px",
                                 fontWeight: "bold",
@@ -106,4 +104,4 @@ const BookHomePage = () => {
     )
 }
 
-export default BookHomePage;
+export default BookletHomePage
